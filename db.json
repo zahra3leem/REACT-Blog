@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": "5095",
+      "firstName": "rwan",
+      "lastName": "omar",
+      "email": "rwan@gmail.com",
+      "password": "121212",
+      "confirmPassword": "121212"
+    },
+    {
+      "id": "935f",
+      "firstName": "hamada",
+      "lastName": "hamada",
+      "email": "hamada@gmail.com",
+      "password": "121212",
+      "confirmPassword": "121212"
+    },
+    {
+      "id": "6cde",
+      "firstName": "rwan",
+      "lastName": "adel",
+      "email": "rwanadel27@gmail.com",
+      "password": "rwan12345678",
+      "confirmPassword": "rwan12345678"
+    },
+    {
+      "id": "f284",
+      "firstName": "zahraaa",
+      "lastName": "aleemjo",
+      "email": "zahra3leenklm77@gamil.com",
+      "password": "123456789",
+      "confirmPassword": "123456789"
+    },
+    {
+      "id": "90c0",
+      "firstName": "yasser",
+      "lastName": "salem",
+      "email": "yasser@gmail.com",
+      "password": "123456789",
+      "confirmPassword": "123456789"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "New movie is released!",
+      "content": "Click the button to watch on Jetflix app.",
+      "image": "",
+      "descraption": "Click the button to watch on Jetflix app.Click the button to watch on Jetflix app."
+    },
+    {
+      "id": "1",
+      "title": "New movie is released!",
+      "content": "Click the button to watch on Jetflix app.",
+      "image": "",
+      "descraption": "Click the button to watch on Jetflix app.Click the button to watch on Jetflix app."
+    }
+  ]
+}
