@@ -29,21 +29,19 @@ function PostDetails() {
         }
       );
       alert("Post deleted successfully");
-      navigate("/home")
+      navigate("/home");
 
       // After deleting the post, filter it out from the UI
       setPost((prevPosts) => prevPosts.filter((post) => post._id !== id));
     } catch (error) {
       console.error("Error:", error);
       if (error.response) {
-        alert(
-          "error"
-        );
+        alert("error");
       } else {
         alert("Failed to delete post");
-  }
-}
-};
+      }
+    }
+  };
   // const navigate = useNavigate();
 
   // const handleEdit=()=>{
@@ -69,17 +67,17 @@ function PostDetails() {
 
   return (
     <div className="relative flex justify-center">
-      <div className="card bg-base-100 w-4/4  shadow-xl w-3/4">
-        <figure className="relative h-4/4">
+      <div className="card bg-base-100  shadow-xl w-1/2">
+        <figure className="relative ">
           <img
             className="w-full rounded-xl"
             src={post?.images || zaghll}
             alt={post?.title || "Default Image"}
           />
           <div className="flex flex-col gap-3 buttons absolute  w-12 items-center p-3 bg-customBlue  rounded-xl  top-5 right-5">
-            {userId === post?.userId && (
+            {userId === post?.user?._id && (
               <div>
-                <Link to={`/editt/${post._id}`} >
+                <Link to={`/editt/${post._id}`}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -89,7 +87,7 @@ function PostDetails() {
                     <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
                   </svg>
                 </Link>
-                
+
                 <button onClick={() => deletePost(post._id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +152,14 @@ function PostDetails() {
         <div className="text-slate-950 flex justify-center flex-col gap-2 p-9">
           <h1 className="font-bold text-4xl">{post?.title}</h1>
           <p className=" text-2xl">{post?.description}</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure amet consequuntur consectetur nesciunt et expedita voluptatem at debitis quidem commodi vero velit, aut nemo consequatur accusamus similique nostrum molestias facere, officia natus! Assumenda eveniet fugiat animi fugit, facilis vero omnis quibusdam quo ex quod quas nam repellendus excepturi sit perspiciatis.</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure amet
+            consequuntur consectetur nesciunt et expedita voluptatem at debitis
+            quidem commodi vero velit, aut nemo consequatur accusamus similique
+            nostrum molestias facere, officia natus! Assumenda eveniet fugiat
+            animi fugit, facilis vero omnis quibusdam quo ex quod quas nam
+            repellendus excepturi sit perspiciatis.
+          </p>
           <div className="card-actions justify-end"></div>
         </div>
       </div>
