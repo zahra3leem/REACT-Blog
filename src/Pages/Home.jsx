@@ -164,7 +164,7 @@ const Home = () => {
                   </figure>
                   <div className="card-body ">
                     <h1 className="card-title text-4xl">{post.title}</h1>
-                    <h4 className="font-bold">By:</h4>
+                    <h4 className="font-bold">By:{post.user.name}</h4>
                     {new Date().toLocaleTimeString()} -{" "}
                     {new Date().toLocaleDateString()}{" "}
                     <p className="text-left text-xl">{post.description}</p>

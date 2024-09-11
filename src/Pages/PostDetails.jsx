@@ -48,7 +48,7 @@ function PostDetails() {
   // navigate("editt/:id")
   // }
 
-  console.log("Post ID from route:", id); // Debugging log for the post ID
+  console.log("Post ID from route:", id); 
 
   useEffect(() => {
     if (id) {
@@ -75,7 +75,7 @@ function PostDetails() {
             alt={post?.title || "Default Image"}
           />
           <div className="flex flex-col gap-3 buttons absolute  w-12 items-center p-3 bg-customBlue  rounded-xl  top-5 right-5">
-            {userId === post?.user?._id && (
+            {userId === post?.user && (
               <div>
                 <Link to={`/editt/${post._id}`}>
                   <svg

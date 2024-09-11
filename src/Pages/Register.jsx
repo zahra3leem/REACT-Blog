@@ -7,7 +7,7 @@ import logoo from "../Components/images/logoo-removebg-preview.png"
 
 function Register() {
   const [formData, setFormData] = useState({
-    firstName: "",
+    name: "",
     lastName: "",
     email: "",
     password: "",
@@ -20,8 +20,8 @@ function Register() {
     e.preventDefault();
     let validationErrors = {};
 
-    if (!formData.firstName) {
-      validationErrors.firstName = "First name is required";
+    if (!formData.name) {
+      validationErrors.name = "First name is required";
     }
 
     if (!formData.lastName) {
@@ -92,15 +92,15 @@ function Register() {
             </label>
             <input
               type="text"
-              id="firstName"
+              id="name"
               onChange={(event) =>
-                setFormData({ ...formData, firstName: event.target.value })
+                setFormData({ ...formData, name: event.target.value })
               }
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-gray-600  sm:text-sm"
               placeholder="First name"
             />
-            {errors.firstName && (
-              <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
             )}
           </div>
 
