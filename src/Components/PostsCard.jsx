@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import {zaghll} from "../assets/1.jpg"
+import zaghll from "../assets/1.jpg"
 function PostsCard(props) {
   return (
     <>

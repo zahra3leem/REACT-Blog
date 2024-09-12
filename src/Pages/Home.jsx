@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import zaghll from "../assets/1.jpg";
 import logoo from "../Components/images/logoo-removebg-preview.png";
 import PostsCard from "../Components/PostsCard";
 
@@ -145,7 +144,7 @@ const Home = () => {
         <div className="w-3/4 p-4 gap-5">
           <Link
             to="/creat"
-            className="btn shadow-sm border-y-2 text-white bg-slate-700 focus:outline-none glass btn-sm ">
+            className="btn shadow-sm hover:bg-slate-700 focus:outline-none  btn-outline glass sm:btn-sm md:btn-md ">
             Create Post
           </Link>
 
