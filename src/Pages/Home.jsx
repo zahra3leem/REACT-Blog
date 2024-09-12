@@ -120,6 +120,8 @@ const Home = () => {
         {/* Main Content */}
         <div className=" p-4 gap-5">
           <div className=" flex justify-end">
+            <button className=" hover:bg-slate-700 m-5  btn-outline 
+            btn shadow-sm border-y-2 text-white bg-slate-700 focus:outline-none glass " onClick={()=>{handleSelectUser("")}}>clear </button>
             <Link
               to="/creat"
               className=" hover:bg-slate-700 m-5  btn-outline 
@@ -128,7 +130,6 @@ const Home = () => {
               Create Post
             </Link>
           </div>
-          <button className="btn" onClick={()=>{handleSelectUser("")}}>clear </button>
           {filterdPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {filterdPosts.map((post) => (
