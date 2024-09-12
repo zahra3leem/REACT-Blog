@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import zaghll from "../assets/1.jpg";
 import logoo from "../Components/images/logoo-removebg-preview.png";
+import PostsCard from "../Components/PostsCard";
 
 const Home = () => {
   const [posts, setPosts] = useState([]); // To store the fetched posts
@@ -144,40 +145,40 @@ const Home = () => {
         <div className="w-3/4 p-4 gap-5">
           <Link
             to="/creat"
-            className="btn shadow-sm hover:bg-slate-700 focus:outline-none  btn-outline glass sm:btn-sm md:btn-md "
-          >
+            className="btn shadow-sm border-y-2 text-white bg-slate-700 focus:outline-none glass btn-sm ">
             Create Post
           </Link>
-          <div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {posts.length > 0 ? (
               posts.map((post) => (
-                <div
-                  key={post.id}
-                  className="card card-side w-full  bg-gray-50 shadow-xl mb-4 mt-5"
-                >
-                  <figure style={{ maxWidth: 283, height: 353 }}>
-                    <img
-                      className="rounded-2xl object-cover w-full h-full"
-                      src={post.images || { zaghll }}
-                      alt={post.title}
-                    />
-                  </figure>
-                  <div className="card-body ">
-                    <h1 className="card-title text-4xl">{post.title}</h1>
-                    <h4 className="font-bold text-xl font-serif">By:         {post.user.name}</h4>
-                    {new Date().toLocaleTimeString()} -{" "}
-                    {new Date().toLocaleDateString()}{" "}
-                    <p className="text-left text-xl">{post.description}</p>
-                    <div className="card-actions justify-end">
-                      <Link
-                        to={`/details/${post._id}`}
-                        className="btn shadow-sm hover:bg-slate-700 focus:outline-none  btn-outline glass sm:btn-sm md:btn-md"
-                      >
-                        Read more
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                <PostsCard data={post} key={post.id}/>
+
+                // <div
+                //   key={post.id}
+                //   className="card card-side w-full  bg-gray-50 shadow-xl mb-4 mt-5">
+                //   <figure style={{ maxWidth: 283, height: 353 }}>
+                //     <img
+                //       className="rounded-2xl object-cover w-full h-full"
+                //       src={post.images || { zaghll }}
+                //       alt={post.title} />
+                //   </figure>
+                //   <div className="card-body ">
+                //     <h1 className="card-title text-4xl">{post.title}</h1>
+                //     <h4 className="font-bold text-xl font-serif">By:         {post.user.name}</h4>
+                //     {new Date().toLocaleTimeString()} -{" "}
+                //     {new Date().toLocaleDateString()}{" "}
+                //     <p className="text-left text-xl">{post.description}</p>
+                //     <div className="card-actions justify-end">
+                //       <Link
+                //         to={`/details/${post._id}`}
+                //         className="btn shadow-sm hover:bg-slate-700 focus:outline-none  btn-outline glass sm:btn-sm md:btn-md"
+                //       >
+                //         Read more
+                //       </Link>
+                //     </div>
+                //   </div>
+                // </div>
               ))
             ) : (
               <h1 className="text-white font-extrabold text-4xl">
