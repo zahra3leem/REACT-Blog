@@ -61,7 +61,14 @@ const Home = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <a>Profile</a>
+                  <button
+                    onClick={() => {
+                      handleSelectUser(localStorage.userId);
+                    }}
+                  >
+                    {" "}
+                    Profile{" "}
+                  </button>
                 </li>
                 <li>
                   <Link to="/logout">Log out</Link>
@@ -118,27 +125,29 @@ const Home = () => {
         {/* Main Content */}
         <div className=" p-4 gap-5">
           <div className=" flex justify-end">
-            <button
-              className=" hover:bg-slate-700 m-5  btn-outline 
+            {selectedUserId &&(
+              <button
+                className=" hover:bg-slate-700 m-5  btn-outline 
             btn shadow-sm border-y-2 text-white bg-slate-700 focus:outline-none glass "
-              onClick={() => {
-                handleSelectUser("");
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="size-6"
+                onClick={() => {
+                  handleSelectUser("");
+                }}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M4.755 10.059a7.5 7.5 0 0 1 12.548-3.364l1.903 1.903h-3.183a.75.75 0 1 0 0 1.5h4.992a.75.75 0 0 0 .75-.75V4.356a.75.75 0 0 0-1.5 0v3.18l-1.9-1.9A9 9 0 0 0 3.306 9.67a.75.75 0 1 0 1.45.388Zm15.408 3.352a.75.75 0 0 0-.919.53 7.5 7.5 0 0 1-12.548 3.364l-1.902-1.903h3.183a.75.75 0 0 0 0-1.5H2.984a.75.75 0 0 0-.75.75v4.992a.75.75 0 0 0 1.5 0v-3.18l1.9 1.9a9 9 0 0 0 15.059-4.035.75.75 0 0 0-.53-.918Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              clear{" "}
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.755 10.059a7.5 7.5 0 0 1 12.548-3.364l1.903 1.903h-3.183a.75.75 0 1 0 0 1.5h4.992a.75.75 0 0 0 .75-.75V4.356a.75.75 0 0 0-1.5 0v3.18l-1.9-1.9A9 9 0 0 0 3.306 9.67a.75.75 0 1 0 1.45.388Zm15.408 3.352a.75.75 0 0 0-.919.53 7.5 7.5 0 0 1-12.548 3.364l-1.902-1.903h3.183a.75.75 0 0 0 0-1.5H2.984a.75.75 0 0 0-.75.75v4.992a.75.75 0 0 0 1.5 0v-3.18l1.9 1.9a9 9 0 0 0 15.059-4.035.75.75 0 0 0-.53-.918Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                clear{" "}
+              </button>
+            ) }
             <Link
               to="/creat"
               className=" hover:bg-slate-700 m-5  btn-outline 

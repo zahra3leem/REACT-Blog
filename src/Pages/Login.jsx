@@ -68,6 +68,8 @@ function Login() {
 
         // If successful, store the token and log in the user
         localStorage.setItem("token", res.data.token); // Store token in localStorage
+        console.log()
+        localStorage.setItem("userId", res.data.user._id); // Store token in localStorage
         login(res.data.token, res.data.user);
         //const user = res.data.user;
         //login(user); // Log in the user by updating the context4
