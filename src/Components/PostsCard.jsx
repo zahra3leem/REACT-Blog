@@ -20,7 +20,8 @@ function PostsCard(props) {
           <div className="card-actions justify-end">
             <Link
               to={`/details/${props?.data?._id}`}
-              className="btn shadow-sm border-y-2 text-white bg-slate-700 focus:outline-none glass btn-sm "
+              className=" hover:bg-slate-700  btn-outline 
+            btn shadow-sm border-y-2 text-white bg-slate-700 focus:outline-none glass  "
             >
               {" "}
               More Details

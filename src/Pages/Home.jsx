@@ -142,12 +142,16 @@ const Home = () => {
 
         {/* Main Content */}
         <div className=" p-4 gap-5">
+          <div className=" flex justify-end">
+
           <Link
             to="/creat"
-            className="btn shadow-sm hover:bg-slate-700 focus:outline-none  btn-outline glass sm:btn-sm md:btn-md "
-          >
+            className=" hover:bg-slate-700 m-5  btn-outline 
+            btn shadow-sm border-y-2 text-white bg-slate-700 focus:outline-none glass  "
+            >
             Create Post
           </Link>
+            </div>
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {posts.map((post) => (
@@ -155,8 +159,8 @@ const Home = () => {
               ))}
             </div>
           ) : (
-            <h2 className="text-white font-extrabold w-full text-4xl ">
-              اصبر وماصبرك الا بالله
+            <h2 className="text-white ">
+            No posts found
             </h2>
           )}
         </div>

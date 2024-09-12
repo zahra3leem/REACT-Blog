@@ -42,11 +42,7 @@ function PostDetails() {
       }
     }
   };
-  // const navigate = useNavigate();
 
-  // const handleEdit=()=>{
-  // navigate("editt/:id")
-  // }
 
   console.log("Post ID from route:", id); 
 
@@ -66,15 +62,15 @@ function PostDetails() {
   }, [id]);
 
   return (
-    <div className="relative flex justify-center">
-      <div className="card bg-base-100  shadow-xl w-1/2">
+    <div className="relative flex  justify-center">
+      <div className="card    shadow-xl md:w-1/2">
         <figure className="relative ">
           <img
             className="w-full rounded-xl"
             src={post?.images || zaghll}
             alt={post?.title || "Default Image"}
           />
-          <div className="flex flex-col gap-3 buttons absolute  w-12 items-center p-3 bg-customBlue  rounded-xl  top-5 right-5">
+          <div className="flex flex-col gap-3 buttons absolute   items-center p-3 bg-customBlue  rounded-xl  top-5 right-5">
             {userId === post?.user && (
               <div>
                 <Link to={`/editt/${post._id}`}>
@@ -129,7 +125,6 @@ function PostDetails() {
               </svg>
             </button>
           </div>
-
           <Link
             to="/home"
             className="absolute top-0 left-0 rounded-2xl z-50 bg-white cursor-pointer  flex justify-center btn-lg  
@@ -149,7 +144,7 @@ function PostDetails() {
             </svg>
           </Link>
         </figure>
-        <div className="text-slate-950 flex justify-center flex-col gap-2 p-9">
+        <div className="text-slate-950 flex justify-center flex-col  gap-2 p-9 ">
           <h1 className="font-bold text-4xl">{post?.title}</h1>
           <p className=" text-2xl">{post?.description}</p>
           <p>
