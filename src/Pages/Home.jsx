@@ -102,7 +102,7 @@ const Home = () => {
 
       <div className="flex  bg-customBlue rounded-2xl">
         {/* Sidebar */}
-        <div className="w-1/4 bg-customBlue p-4 rounded-2xl">
+        {/* <div className="w-1/4 bg-customBlue p-4 rounded-2xl">
           <div className="mb-4">
             <div className="text-white font-bold w-full h-10 flex justify-start items-center hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-xl hover:rounded-xl transition duration-300 ease-in-out">
               For You
@@ -138,10 +138,10 @@ const Home = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Main Content */}
-        <div className="w-3/4 p-4 gap-5">
+        <div className=" p-4 gap-5">
           <Link
             to="/creat"
             className="btn shadow-sm hover:bg-slate-700 focus:outline-none  btn-outline glass sm:btn-sm md:btn-md ">
@@ -152,32 +152,6 @@ const Home = () => {
             {posts.length > 0 ? (
               posts.map((post) => (
                 <PostsCard data={post} key={post.id}/>
-
-                // <div
-                //   key={post.id}
-                //   className="card card-side w-full  bg-gray-50 shadow-xl mb-4 mt-5">
-                //   <figure style={{ maxWidth: 283, height: 353 }}>
-                //     <img
-                //       className="rounded-2xl object-cover w-full h-full"
-                //       src={post.images || { zaghll }}
-                //       alt={post.title} />
-                //   </figure>
-                //   <div className="card-body ">
-                //     <h1 className="card-title text-4xl">{post.title}</h1>
-                //     <h4 className="font-bold text-xl font-serif">By:         {post.user.name}</h4>
-                //     {new Date().toLocaleTimeString()} -{" "}
-                //     {new Date().toLocaleDateString()}{" "}
-                //     <p className="text-left text-xl">{post.description}</p>
-                //     <div className="card-actions justify-end">
-                //       <Link
-                //         to={`/details/${post._id}`}
-                //         className="btn shadow-sm hover:bg-slate-700 focus:outline-none  btn-outline glass sm:btn-sm md:btn-md"
-                //       >
-                //         Read more
-                //       </Link>
-                //     </div>
-                //   </div>
-                // </div>
               ))
             ) : (
               <h1 className="text-white font-extrabold text-4xl">

@@ -4,11 +4,11 @@ function PostsCard(props) {
   return (
     <>
       <div className="card card-compact bg-base-100 shadow-xl">
-        <figurer className="h-[200px]">
+        <div className="h-[200px]">
           <img className="h-full w-full rounded-2xl"
-            src={props?.data?.images|| { zaghll }}
+            src={props?.data?.images||  zaghll }
             alt="Shoes"/>
-        </figurer>
+        </div>
         <div className="card-body text-left">
           <h2 className="card-title">{props?.data?.title}</h2>
           <p className="text-sm text-slate-400 ">By: {props?.data?.user.name}</p>
