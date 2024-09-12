@@ -3,7 +3,7 @@ import zaghll from "../assets/1.jpg";
 function PostsCard(props) {
   return (
     <>
-      <div className="card card-compact bg-base-100 shadow-xl">
+      <div className="card card-compact bg-base-100 shadow-xl w-full">
         <div className="h-[200px]">
           <img
             className="h-full w-full rounded-2xl"
