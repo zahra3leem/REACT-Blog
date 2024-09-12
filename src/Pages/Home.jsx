@@ -144,22 +144,21 @@ const Home = () => {
         <div className=" p-4 gap-5">
           <Link
             to="/creat"
-            className="btn shadow-sm hover:bg-slate-700 focus:outline-none  btn-outline glass sm:btn-sm md:btn-md ">
+            className="btn shadow-sm hover:bg-slate-700 focus:outline-none  btn-outline glass sm:btn-sm md:btn-md "
+          >
             Create Post
           </Link>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {posts.length > 0 ? (
-              posts.map((post) => (
-                <PostsCard data={post} key={post.id}/>
-              ))
-            ) : (
-              <h1 className="text-white font-extrabold text-4xl">
-                {" "}
-                "اصبر وماصبرك الا بالله"
-              </h1>
-            )}
-          </div>
+          {posts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {posts.map((post) => (
+                <PostsCard data={post} key={post.id} />
+              ))}
+            </div>
+          ) : (
+            <h2 className="text-white font-extrabold w-full text-4xl ">
+              اصبر وماصبرك الا بالله
+            </h2>
+          )}
         </div>
       </div>
     </>
