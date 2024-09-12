@@ -26,8 +26,7 @@ const Home = () => {
     }
   }, [posts, selectedUserId]);
   
-  const handleSelectUser = (id) => {
-    console.log(id)
+  const handleSelectUser = (id) => {   
     setSelectedUserId(id);
   };
 
@@ -129,6 +128,7 @@ const Home = () => {
               Create Post
             </Link>
           </div>
+          <button className="btn" onClick={()=>{console.log("clear")}}>clear </button>
           {filterdPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {filterdPosts.map((post) => (
