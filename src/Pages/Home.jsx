@@ -1,20 +1,37 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logoo from "../Components/images/logoo-removebg-preview.png";
 import PostsCard from "../Components/PostsCard";
 
 const Home = () => {
   const [posts, setPosts] = useState([]); // To store the fetched posts
-  const [errors, setErrors] = useState({});
-  const navigate = useNavigate();
+  const [filterdPosts, setFilterdPosts] = useState([]); // To store the fetched posts
+  const [selectedUserId, setSelectedUserId] = useState(""); // To store the fetched posts
+  const [, setErrors] = useState({});
 
   // Fetch posts from rwan server
   useEffect(() => {
     fetch("https://react-blog-api-by-rwan.glitch.me/api/v1/posts") // Assuming your JSON server is running on port 3000
       .then((response) => response.json())
       .then((data) => setPosts(data.posts))
-      .catch((error) => setErrors({ fetchError: "Error fetching posts" }));
+      .catch(() => setErrors({ fetchError: "Error fetching posts" }));
   }, []);
+
+  useEffect(() => {
+    if (!selectedUserId || !posts) {
+      setFilterdPosts(posts);
+    } else {
+      const filterdData = posts.filter((el) => el.user._id == selectedUserId);
+      setFilterdPosts(filterdData);
+    }
+  }, [posts, selectedUserId]);
+  
+  const handleSelectUser = (id) => {
+    console.log(id)
+    setSelectedUserId(id);
+  };
+
+  
 
   return (
     <>
@@ -101,67 +118,25 @@ const Home = () => {
       </navbar>
 
       <div className="flex  bg-customBlue rounded-2xl">
-        {/* Sidebar */}
-        {/* <div className="w-1/4 bg-customBlue p-4 rounded-2xl">
-          <div className="mb-4">
-            <div className="text-white font-bold w-full h-10 flex justify-start items-center hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-xl hover:rounded-xl transition duration-300 ease-in-out">
-              For You
-            </div>
-          </div>
-          <div className="mb-4">
-            <div className="text-white font-bold w-full h-10 flex justify-start items-center hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-xl hover:rounded-xl transition duration-300 ease-in-out">
-              Following
-            </div>
-          </div>
-          <div className="mb-4">
-            <div className="flex justify-between items-center">
-              <div className="text-white font-bold w-full h-10 flex justify-start items-center hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-xl hover:rounded-xl transition duration-300 ease-in-out">
-                Channels
-              </div>
-              <button className="text-white btn-outline c glass w-10 rounded-xl">
-                +
-              </button>
-            </div>
-          </div>
-          <div className="mb-4">
-            <button className="text-white font-bold w-full h-10 flex justify-start items-center hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-xl hover:rounded-xl transition duration-300 ease-in-out">
-              Top Sources
-            </button>
-          </div>
-          <div>
-            <div className="flex justify-between items-center">
-              <button className="text-white font-bold w-full h-10 flex justify-start items-center hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-xl hover:rounded-xl transition duration-300 ease-in-out">
-                Publishers
-              </button>
-              <button className="text-white btn-outline c glass w-10 rounded-xl">
-                +
-              </button>
-            </div>
-          </div>
-        </div> */}
-
         {/* Main Content */}
         <div className=" p-4 gap-5">
           <div className=" flex justify-end">
-
-          <Link
-            to="/creat"
-            className=" hover:bg-slate-700 m-5  btn-outline 
+            <Link
+              to="/creat"
+              className=" hover:bg-slate-700 m-5  btn-outline 
             btn shadow-sm border-y-2 text-white bg-slate-700 focus:outline-none glass  "
             >
-            Create Post
-          </Link>
-            </div>
-          {posts.length > 0 ? (
+              Create Post
+            </Link>
+          </div>
+          {filterdPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {posts.map((post) => (
-                <PostsCard data={post} key={post.id} />
+              {filterdPosts.map((post) => (
+                <PostsCard data={post} key={post.id} handleSelectUser={handleSelectUser}/>
               ))}
             </div>
           ) : (
-            <h2 className="text-white ">
-            No posts found
-            </h2>
+            <h2 className="text-white ">No posts found</h2>
           )}
         </div>
       </div>

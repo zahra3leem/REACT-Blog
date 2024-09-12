@@ -14,7 +14,7 @@ function PostsCard(props) {
         <div className="card-body text-left">
           <h2 className="card-title">{props?.data?.title}</h2>
           <p className="text-sm text-slate-400 ">
-            By: {props?.data?.user.name}
+            By: <button onClick={()=>props?.handleSelectUser(props?.data?.user._id)} className="text-blue-700 underline"> {props?.data?.user.name}</button>
           </p>
           <p>{props?.data?.description}</p>
           <div className="card-actions justify-end">
@@ -23,7 +23,6 @@ function PostsCard(props) {
               className=" hover:bg-slate-700  btn-outline 
             btn shadow-sm border-y-2 text-white bg-slate-700 focus:outline-none glass  "
             >
-              {" "}
               More Details
             </Link>
           </div>
